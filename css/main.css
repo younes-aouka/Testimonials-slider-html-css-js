@@ -1,0 +1,85 @@
+/*start of global rules */
+body,body * {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*end of global rules */
+body {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Cairo", serif;
+}
+
+.DarkMode {
+    background-color: #121212;
+}
+
+.lightMode {
+    background-color: #eeeeee63;
+}
+
+.mode {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    border: none;
+    background-color: transparent;
+    font-size: 25px;
+    cursor: pointer;
+    color: white;
+}
+
+.mode i {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.mode .fa-solid.fa-moon {
+    background-color:#121212 ;
+}
+
+.mode .fa-regular.fa-sun {
+    border: 1px solid white;
+}
+
+.box {
+    width: 400px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 15px;
+}
+
+.box > img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translatex(-50%);
+    border-radius: 50%;
+}
+
+.box .text{
+    margin-top: 30px;
+}
+
+.box > h4 {
+    align-self: flex-end;
+    margin-top: 10px;
+}
+
+
