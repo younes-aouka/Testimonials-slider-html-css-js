@@ -2,6 +2,8 @@
 const modeIcon = document.querySelector(".mode i");
 const lightModeIcon = "fa-solid fa-moon";
 const darkModeIcon = "fa-regular fa-sun";
+const modeSwitchSound = new Audio("sounds/modeSwitch.mp3");
+
 
 function searchForOldMode(){
     if(localStorage.getItem("mode")==="DarkMode"){
@@ -12,7 +14,16 @@ function searchForOldMode(){
 
 searchForOldMode();
 
-document.querySelector(".mode").addEventListener("click", function() {
+async function playSwitchSound() {
+    try{
+        await modeSwitchSound.play();
+    }catch(e){
+        console.log(e);
+    }
+}
+
+document.querySelector(".mode").addEventListener("click",async function() {
+    await playSwitchSound();
     if (document.body.classList.contains("lightMode")) {
         document.body.classList.replace("lightMode", "DarkMode");
         modeIcon.className = darkModeIcon;  
@@ -23,13 +34,16 @@ document.querySelector(".mode").addEventListener("click", function() {
     localStorage.setItem("mode",document.body.className);
 });
 
+document.addEventListener("beforeunload",(_) => localStorage.setItem("mode",document.body.className))
+
 // testimonials part
 const testimonials = [
     {
         img: "images/testimonial-01.jpg",
-        testimonial: "I highly recommend younes company. It has been so important for us as we continue to grow our company.",
+        testimonial: "From the moment I engaged with Younes Company, I felt like more than just a client—I felt like part of an innovative family. After collaborating with their talented team, I discovered not just solutions, but inspired ideas that transformed my vision into reality" ,
         Name: "Walter"
     },
+    
     {
         img: "images/testimonial-02.jpg",
         testimonial: "I have tried a few software of this kind and younes company is the best by far!",
